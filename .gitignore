@@ -1,9 +1,49 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-
-# Project property files
-.actionScriptProperties
-.flexProperties
-.settings/
-.project
+<script type="text/javascript">
+  	function validateName(){
+			var name = document.getElementById("username").value;
+			if(name.trim() == ""){
+				return false;
+			}
+			return true;
+			
+		}
+		function validatePwd(){
+			var pwd = document.getElementById("password").value;
+			if(pwd == ""){
+				return false;
+			}
+			return true;
+		}
+		
+		document.getElementById("username").onblur = function(){
+			if(!validateName()){
+				document.getElementById("name-msg").innerHTML = "用户名不能为空！";
+				
+			}
+		};
+		document.getElementById("username").onkeyup = function(){
+			document.getElementById("name-msg").innerHTML = "";
+		};
+		document.getElementById("password").onblur = function(){
+			if(!validatePwd()){
+				document.getElementById("pwd-msg").innerHTML = "密码不能为空！";
+			}
+		};
+		document.getElementById("password").onkeyup = function(){
+			document.getElementById("pwd-msg").innerHTML = "";
+		};
+		document.getElementById("btnSubmit").onclick = function(){
+			if(!validateName()){
+				alert("用户名不能为空！");
+				document.getElementById("username").focus();
+				return;
+			}
+			if(!validatePwd()){
+				alert("密码不能为空！");
+				document.getElementById("password").focus();
+				return;
+			}
+			document.getElementById("myform").submit();
+		};
+		
+	</script>
